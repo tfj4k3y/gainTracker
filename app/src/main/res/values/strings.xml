@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GainTracker</string>
+    <string name="mainTitle">GainTracker</string>
+    <string name="startButton">Rozpocznij trening</string>
+    <string name="previewButton">Podgląd wyników</string>
+    <string name="settingsButton">Ustawienia</string>
+    <string name="testText">To są ustawienia testowe!</string>
+    <string name="backButton">Powrót</string>
+</resources>

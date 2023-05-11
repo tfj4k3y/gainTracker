@@ -6,4 +6,26 @@
     <string name="settingsButton">Ustawienia</string>
     <string name="testText">To są ustawienia testowe!</string>
     <string name="backButton">Powrót</string>
+    <string name="preview_destricption">Nazwa ćwiczenia - l.serii - l.powtórzeń - ciężar</string>
+
+    <string-array name="exercises">
+        <item>Wyciskanie sztangi</item>
+        <item>Martwy ciag</item>
+        <item>Przysiad ze sztanga</item>
+    </string-array>
+
+    <string-array name="results">
+        <item>4 – 12 – 40</item>
+        <item>4 – 12 – 60</item>
+        <item>4 – 12 – 50</item>
+    </string-array>
+
+    <string-array name="dates">
+        <item>Poniedziałek - 08.05.2023</item>
+        <item>Środa - 10.05.2023</item>
+        <item>Piątek - 12.05.2023</item>
+    </string-array>
+
+
+
 </resources>

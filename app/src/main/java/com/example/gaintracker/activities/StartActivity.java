@@ -1,8 +1,10 @@
-package com.example.gaintracker;
+package com.example.gaintracker.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.gaintracker.R;
 
 public class StartActivity extends AppCompatActivity {
 

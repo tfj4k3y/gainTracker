@@ -8,6 +8,9 @@
     <string name="backButton">Powrót</string>
     <string name="preview_destricption">Nazwa ćwiczenia - l.serii - l.powtórzeń - ciężar</string>
 
+
+    <!--Poniższe dane są testowe potrzebne do prezentacji działania recyclerviewera-->
+
     <string-array name="exercises">
         <item>Wyciskanie sztangi</item>
         <item>Martwy ciag</item>

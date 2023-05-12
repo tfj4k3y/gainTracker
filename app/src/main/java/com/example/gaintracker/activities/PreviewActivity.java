@@ -1,10 +1,13 @@
-package com.example.gaintracker;
+package com.example.gaintracker.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.example.gaintracker.R;
+import com.example.gaintracker.RecycleviewAdapter;
 
 public class PreviewActivity extends AppCompatActivity {
 

@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    //Poniżej przy pomocy dwóch statycznych metod tworzone sa tabele naszej bazy danych
+
     private static final String SQL_CREATE_WORKOUT_TABLE =
             "CREATE TABLE " + DatabaseContract.Workout.TABLE_NAME + " (" +
                     DatabaseContract.Workout._ID + " INTEGER PRIMARY KEY," +
@@ -21,11 +23,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.Exercises.COLUMN_NAME_WEIGHT + " TEXT," +
                     DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT + " INTEGER)";
 
+    //A tu poniżej metody usuwające tabele z bazy danych
+
     private static final String SQL_DELETE_WORKOUT_TABLE =
             "DROP TABLE IF EXISTS " + DatabaseContract.Workout.TABLE_NAME;
 
     private static final String SQL_DELETE_EXERCISE_TABLE =
             "DROP TABLE IF EXISTS " + DatabaseContract.Exercises.TABLE_NAME;
+
+
+
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "GainTracker.db";

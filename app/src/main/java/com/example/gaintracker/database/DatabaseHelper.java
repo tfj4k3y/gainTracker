@@ -46,10 +46,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(SQL_DELETE_EXERCISE_TABLE);
-        db.execSQL(SQL_DELETE_WORKOUT_TABLE);
-        onCreate(db);
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
 }

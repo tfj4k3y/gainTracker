@@ -3,9 +3,11 @@ package com.example.gaintracker.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.gaintracker.R;
 import com.example.gaintracker.database.DatabaseContract;
@@ -20,17 +22,41 @@ public class StartActivity extends AppCompatActivity {
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
 
-        //Dodawanie tabeli trening na starcie
+        Button nextExerciseButton = findViewById(R.id.next_exercise);
+        Button endTrainingButton = findViewById(R.id.end_training);
 
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        nextExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        // Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        //values.put(DatabaseContract.Workout.COLUMN_NAME_DATE, date);
-        //values.put(DatabaseContract.Workout.COLUMN_NAME_DAY_OF_THE_WEEK, day_of_the_week);
+                EditText ExerciseName = (EditText) findViewById(R.id.exercise_name);
+                String sExerciseName = ExerciseName.getText().toString().trim();
 
-        // Insert the new row, returning the primary key value of the new row
-        long newRowId = db.insert(DatabaseContract.Workout.TABLE_NAME, null, values);
+                EditText Sets = (EditText) findViewById(R.id. sets);
+                String sSets = ExerciseName.getText().toString().trim();
+
+                EditText Reps = (EditText) findViewById(R.id.reps);
+                String sReps = ExerciseName.getText().toString().trim();
+
+                EditText Weight = (EditText) findViewById(R.id.weight);
+                String sWeight = ExerciseName.getText().toString().trim();
+
+                //Dodawanie tabeli trening na starcie
+
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                ContentValues values = new ContentValues();
+                values.put(DatabaseContract.Exercises.COLUMN_NAME_EXERCISE, sExerciseName);
+                values.put(DatabaseContract.Exercises.COLUMN_NAME_SETS, sSets);
+                values.put(DatabaseContract.Exercises.COLUMN_NAME_REPS, sReps);
+                values.put(DatabaseContract.Exercises.COLUMN_NAME_WEIGHT, sWeight);
+                values.put(DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT, sSets);
+
+                long newRowId = db.insert(DatabaseContract.Exercises.TABLE_NAME, null, values);
+
+
+            }
+        });
 
     }
 }

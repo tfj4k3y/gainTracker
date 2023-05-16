@@ -7,7 +7,7 @@
     tools:context=".activities.StartActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/end_training"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:text="Zakończ trening"
@@ -16,11 +16,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/next_exercise"
         app:layout_constraintVertical_bias="0.325" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/next_exercise"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_marginTop="44dp"
@@ -32,12 +32,13 @@
         app:layout_constraintTop_toBottomOf="@+id/weight" />
 
     <EditText
-        android:id="@+id/exerciseName"
+        android:id="@+id/exercise_name"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="148dp"
         android:ems="10"
         android:inputType="text"
+        android:hint="np. martwy ciąg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,11 +50,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="text"
+        android:hint="np. 4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseName" />
+        app:layout_constraintTop_toBottomOf="@+id/exercise_name" />
 
     <EditText
         android:id="@+id/reps"
@@ -62,6 +64,7 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="text"
+        android:hint="np. 12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +77,7 @@
         android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="text"
+        android:hint="np. 100lbs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

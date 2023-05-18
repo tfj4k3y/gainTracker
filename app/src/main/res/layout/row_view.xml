@@ -16,7 +16,7 @@
         <!--Tutaj powinienem zrobić może jeszcze z 3 textview na każda kolumne z tabeli bazy danych -->
 
         <TextView
-            android:id="@+id/results_txt"
+            android:id="@+id/dates"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginTop="24dp"
@@ -24,10 +24,10 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.18"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/exercise_txt" />
+            card_view:layout_constraintTop_toBottomOf="@+id/days_of_week" />
 
         <TextView
-            android:id="@+id/exercise_txt"
+            android:id="@+id/days_of_week"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginTop="24dp"
@@ -41,6 +41,7 @@
             android:id="@+id/button"
             android:layout_width="100dp"
             android:layout_height="75dp"
+            android:text="Klik"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.861"

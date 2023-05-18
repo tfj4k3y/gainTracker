@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 String sDate = getDate();
                 String sDay = getDayOfTheWeek();
 
+                System.out.println(sDate+ "-"+sDay);
+
                 ContentValues values = new ContentValues();
                 values.put(DatabaseContract.Workout.COLUMN_NAME_DATE, sDate);
                 values.put(DatabaseContract.Workout.COLUMN_NAME_DAY_OF_THE_WEEK, sDay);

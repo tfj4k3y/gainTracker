@@ -9,16 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class RecycleviewAdapter extends RecyclerView.Adapter<RecycleviewAdapter.MyViewholder> {
 
-    String cwiczenia[], parametry[], daty[];
+    List<TreningObject> dates;
+            //, daysOfWeek;
     Context context;
 
-    public RecycleviewAdapter(Context ct, String cw[], String param[], String datyA[]){
+    public RecycleviewAdapter(Context ct, List datesA/*, List daysOfWeekA*/){
         context = ct;
-        cwiczenia =cw;
-        parametry = param;
-        daty = datyA;
+        dates = datesA;
+        //daysOfWeek = daysOfWeekA;
     }
 
     @NonNull
@@ -31,24 +33,25 @@ public class RecycleviewAdapter extends RecyclerView.Adapter<RecycleviewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull RecycleviewAdapter.MyViewholder holder, int position) {
-        holder.exercise_text.setText(cwiczenia[position]);
-        holder.result_text.setText(parametry[position]);
-        holder.dates_text.setText(daty[position]);
+        //holder.datesText.setText(dates.get(position));
+        //holder.daysOfWeekText.setText(daysOfWeek.get(position));
+        holder.datesText.setText(dates.get(position).getDate());
+        holder.daysOfWeekText.setText(dates.get(position).getDayOfWeek());
     }
 
     @Override
     public int getItemCount() {
-        return cwiczenia.length;
+        return dates.size();
     }
 
     public class MyViewholder extends RecyclerView.ViewHolder {
 
-        TextView exercise_text, result_text, dates_text;
+        TextView datesText, daysOfWeekText;
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
-            exercise_text = itemView.findViewById(R.id.exercise_txt);
-            result_text = itemView.findViewById(R.id.results_txt);
-            dates_text = itemView.findViewById(R.id.date_txt);
+            datesText = itemView.findViewById(R.id.dates);
+            daysOfWeekText = itemView.findViewById(R.id.days_of_week);
+
         }
     }
 }

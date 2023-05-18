@@ -22,6 +22,8 @@ public class StartActivity extends AppCompatActivity {
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
 
+        long trainingId = getIntent().getLongExtra("id", 0);
+
         Button nextExerciseButton = findViewById(R.id.next_exercise);
         Button endTrainingButton = findViewById(R.id.end_training);
 
@@ -50,13 +52,26 @@ public class StartActivity extends AppCompatActivity {
                 values.put(DatabaseContract.Exercises.COLUMN_NAME_SETS, sSets);
                 values.put(DatabaseContract.Exercises.COLUMN_NAME_REPS, sReps);
                 values.put(DatabaseContract.Exercises.COLUMN_NAME_WEIGHT, sWeight);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT, sSets);
+                values.put(DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT, trainingId);
 
                 long newRowId = db.insert(DatabaseContract.Exercises.TABLE_NAME, null, values);
 
 
             }
         });
+
+        //nextExerciseButton.setOnClickListener(new View.OnClickListener() {
+
+        endTrainingButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                System.out.println(trainingId);
+                //HAAAAAAAAAAAAALOOOOOOOOOO TUTAJ ZRÓB
+
+            }
+        });
+
 
     }
 }

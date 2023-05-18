@@ -13,6 +13,11 @@ import com.example.gaintracker.R;
 import com.example.gaintracker.database.DatabaseContract;
 import com.example.gaintracker.database.DatabaseHelper;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -27,6 +32,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, StartActivity.class);
+
+                //Dodawanie tabeli trening na starcie
+
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                String sDate = getDate();
+                String sDay = getDayOfTheWeek();
+
+                ContentValues values = new ContentValues();
+                values.put(DatabaseContract.Workout.COLUMN_NAME_DATE, sDate);
+                values.put(DatabaseContract.Workout.COLUMN_NAME_DAY_OF_THE_WEEK, sDay);
+
+                long newRowId = db.insert(DatabaseContract.Workout.TABLE_NAME, null, values);
+                intent.putExtra("id", newRowId);
+
                 startActivity(intent);
             }
         });
@@ -36,16 +56,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PreviewActivity.class);
-
-                //Dodawanie tabeli trening na starcie
-
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-                ContentValues values = new ContentValues();
-                //values.put(DatabaseContract.Workout.COLUMN_NAME_DATE, sDate);
-                //values.put(DatabaseContract.Workout.COLUMN_NAME_DAY_OF_THE_WEEK, sDay);
-
-                long newRowId = db.insert(DatabaseContract.Workout.TABLE_NAME, null, values);
 
                 startActivity(intent);
             }
@@ -57,7 +67,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
+
             }
         });
     }
+
+    public String getDayOfTheWeek(){
+
+        Calendar calendar = Calendar.getInstance();
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        String[] dayOfWeekNames = {"Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"};
+
+        return dayOfWeekNames[dayOfWeek - 1];
+    }
+
+    public String getDate(){
+        Date c = Calendar.getInstance().getTime();
+
+        SimpleDateFormat date = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+
+        return date.format(c);
+    }
+
 }

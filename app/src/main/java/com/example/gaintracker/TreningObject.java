@@ -1,12 +1,15 @@
 package com.example.gaintracker;
 
 public class TreningObject {
-    public TreningObject(String date, String dayOfWeek) {
+    private long id;
+    private String date;
+    private String dayOfWeek;
+
+    public TreningObject(long id, String date, String dayOfWeek) {
         this.date = date;
         this.dayOfWeek = dayOfWeek;
+        this.id= id;
     }
-
-    private String date;
 
     public String getDate() {
         return date;
@@ -16,5 +19,7 @@ public class TreningObject {
         return dayOfWeek;
     }
 
-    private String dayOfWeek;
+    public long getId() {
+        return id;
+    }
 }

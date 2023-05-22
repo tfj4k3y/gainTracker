@@ -7,9 +7,9 @@
     <string name="testText">To są ustawienia testowe!</string>
     <string name="backButton">Powrót</string>
     <string name="preview_destricption">Nazwa ćwiczenia - l.serii - l.powtórzeń - ciężar</string>
-    
+
     <!--activity_start strings -->
-    
+
     <string name="exercise_name">Nazwa ćwiczenia:</string>
     <string name="sets">Liczba serii:</string>
     <string name="reps">Liczba powtórzeń:</string>
@@ -20,6 +20,7 @@
     <string name="weight_tint">np. 50kg</string>
     <string name="next_exercise">Następne ćwiczenie</string>
     <string name="end_training">Zakończ trening</string>
+
 
     <!--Poniższe dane są testowe potrzebne do prezentacji działania recyclerviewera-->
 

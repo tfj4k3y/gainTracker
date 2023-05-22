@@ -60,8 +60,6 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
-        //nextExerciseButton.setOnClickListener(new View.OnClickListener() {
-
         endTrainingButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {

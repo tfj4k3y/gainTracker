@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="147dp"
+        android:orientation="vertical">
+
+        <!--Tutaj powinienem zrobić może jeszcze z 3 textview na każda kolumne z tabeli bazy danych -->
+
+        <TextView
+            android:id="@+id/sets_preview_count"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/exercise_preview_name"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.738" />
+
+        <TextView
+            android:id="@+id/exercise_preview_name"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.738" />
+
+        <TextView
+            android:id="@+id/reps_preview_count"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="28dp"
+            android:text="TextView"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/sets_preview_count"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.738" />
+
+        <TextView
+            android:id="@+id/weight_preview"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="28dp"
+            android:text="TextView"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/reps_preview_count"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.738" />
+
+        <TextView
+            android:id="@+id/exercise_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nazwa ćwiczenia - liczba serii - liczba powtórzeń - ciężar"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.491"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.21" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

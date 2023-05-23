@@ -9,18 +9,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.BaseColumns;
-import android.widget.Button;
 
 import com.example.gaintracker.ButtonInterface;
 import com.example.gaintracker.R;
-import com.example.gaintracker.RecycleviewAdapter;
+import com.example.gaintracker.TrainingAdapter;
 import com.example.gaintracker.TreningObject;
 import com.example.gaintracker.database.DatabaseContract;
 import com.example.gaintracker.database.DatabaseHelper;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class PreviewActivity extends AppCompatActivity {
 
@@ -78,25 +75,20 @@ public class PreviewActivity extends AppCompatActivity {
 
         }
 
-        RecycleviewAdapter recycleviewAdapter = new RecycleviewAdapter(this, treningArrayList, new ButtonInterface() {
+        TrainingAdapter trainingAdapter = new TrainingAdapter(this, treningArrayList, new ButtonInterface() {
             @Override
             public void buttonOnClick(TreningObject object) {
                 Intent intent = new Intent(PreviewActivity.this, ExpandActivity.class);
                 long id = object.getId();
+                System.out.println(id);
+                System.out.println(id);
+                System.out.println(id);
+                intent.putExtra("id", id);
+                startActivity(intent);
+
             }
-        }/*dateList, dayList*/);
-        recycleView.setAdapter(recycleviewAdapter);
+        });
+        recycleView.setAdapter(trainingAdapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
-
-
-
-
-
-
-
-
-
-
-
     }
 }

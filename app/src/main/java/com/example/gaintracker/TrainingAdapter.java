@@ -1,7 +1,6 @@
 package com.example.gaintracker;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,21 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gaintracker.activities.ExpandActivity;
-import com.example.gaintracker.activities.MainActivity;
-import com.example.gaintracker.activities.PreviewActivity;
-import com.example.gaintracker.activities.StartActivity;
-
 import java.util.List;
 
-public class RecycleviewAdapter extends RecyclerView.Adapter<RecycleviewAdapter.MyViewholder>{
+public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.MyViewholder>{
 
     List<TreningObject> dates;
     Context context;
-
     ButtonInterface buttonInterface;
 
-    public RecycleviewAdapter(Context ct, List datesA, ButtonInterface buttonInterface/*, List daysOfWeekA*/){
+    public TrainingAdapter(Context ct, List datesA, ButtonInterface buttonInterface){
         context = ct;
         dates = datesA;
         this.buttonInterface = buttonInterface;
@@ -33,14 +26,14 @@ public class RecycleviewAdapter extends RecyclerView.Adapter<RecycleviewAdapter.
 
     @NonNull
     @Override
-    public RecycleviewAdapter.MyViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TrainingAdapter.MyViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.row_view, parent, false);
         return new MyViewholder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleviewAdapter.MyViewholder holder, int position) {
+    public void onBindViewHolder(@NonNull TrainingAdapter.MyViewholder holder, int position) {
         holder.datesText.setText(dates.get(position).getDate());
         holder.daysOfWeekText.setText(dates.get(position).getDayOfWeek());
     }
@@ -53,6 +46,7 @@ public class RecycleviewAdapter extends RecyclerView.Adapter<RecycleviewAdapter.
     public class MyViewholder extends RecyclerView.ViewHolder {
 
         TextView datesText, daysOfWeekText;
+        Button buttonOnClick;
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
             datesText = itemView.findViewById(R.id.dates);
@@ -64,7 +58,6 @@ public class RecycleviewAdapter extends RecyclerView.Adapter<RecycleviewAdapter.
                 public void onClick(View view) {
                     int id = getAdapterPosition();
                     buttonInterface.buttonOnClick(dates.get(id));
-
 
                 }
             });

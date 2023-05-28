@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraint_layout_card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="147dp"
+        android:background="@drawable/border"
         android:orientation="vertical">
 
         <!--Tutaj powinienem zrobić może jeszcze z 3 textview na każda kolumne z tabeli bazy danych -->
@@ -37,16 +39,18 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/expandBButton"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:text="Klik"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/mainColor"
+            android:src="@drawable/baseline_open_in_new_24"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.861"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:tint="@color/white" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

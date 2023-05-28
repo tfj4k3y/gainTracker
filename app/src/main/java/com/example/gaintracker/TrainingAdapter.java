@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,12 +47,12 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.MyView
     public class MyViewholder extends RecyclerView.ViewHolder {
 
         TextView datesText, daysOfWeekText;
-        Button buttonOnClick;
+        ImageButton buttonOnClick;
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
             datesText = itemView.findViewById(R.id.dates);
             daysOfWeekText = itemView.findViewById(R.id.days_of_week);
-            Button buttonOnClick = itemView.findViewById(R.id.expandBButton);
+            buttonOnClick = itemView.findViewById(R.id.expandBButton);
 
             buttonOnClick.setOnClickListener(new View.OnClickListener() {
                 @Override

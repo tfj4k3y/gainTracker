@@ -6,7 +6,7 @@
     <string name="settingsButton">Ustawienia</string>
     <string name="testText">To są ustawienia testowe!</string>
     <string name="backButton">Powrót</string>
-    <string name="preview_destricption">Nazwa ćwiczenia - l.serii - l.powtórzeń - ciężar</string>
+    <string name="preview_destricption">Nazwa ćwiczenia   -    l.serii    -    l.powtórzeń    -    ciężar</string>
 
     <!--activity_start strings -->
 

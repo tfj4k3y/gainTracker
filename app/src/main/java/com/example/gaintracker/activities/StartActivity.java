@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.gaintracker.R;
 import com.example.gaintracker.database.DatabaseContract;
@@ -44,26 +46,37 @@ public class StartActivity extends AppCompatActivity {
                 EditText Weight = (EditText) findViewById(R.id.weight);
                 String sWeight = Weight.getText().toString().trim();
 
+                boolean digitsOnlySets = TextUtils.isDigitsOnly(Sets.getText());
+                boolean digitsOnlyReps = TextUtils.isDigitsOnly(Reps.getText());
+
                 //Dodawanie tabeli trening na starcie
+                //Toast sprawdza, czy pola nie są puste i czy serie i powtórzenia są liczbą
 
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                if(sExerciseName.equals("") || sSets.equals("") || sReps.equals("") || sWeight.equals("") || !digitsOnlySets || !digitsOnlyReps){
+                    CharSequence text = "Błąd w formularzu!";
+                    int duration = Toast.LENGTH_SHORT;
 
-                System.out.println(sExerciseName + " " + sSets);
+                    Toast.makeText(view.getContext(), text, duration).show();
+                }else {
 
-                ContentValues values = new ContentValues();
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_EXERCISE, sExerciseName);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_SETS, sSets);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_REPS, sReps);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_WEIGHT, sWeight);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT, i);
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-                long newRowId = db.insert(DatabaseContract.Exercises.TABLE_NAME, null, values);
+                    System.out.println(sExerciseName + " " + sSets);
 
-                ExerciseName.getText().clear();
-                Sets.getText().clear();
-                Reps.getText().clear();
-                Weight.getText().clear();
+                    ContentValues values = new ContentValues();
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_EXERCISE, sExerciseName);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_SETS, sSets);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_REPS, sReps);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_WEIGHT, sWeight);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT, i);
 
+                    long newRowId = db.insert(DatabaseContract.Exercises.TABLE_NAME, null, values);
+
+                    ExerciseName.getText().clear();
+                    Sets.getText().clear();
+                    Reps.getText().clear();
+                    Weight.getText().clear();
+                }
 
             }
         });
@@ -84,21 +97,31 @@ public class StartActivity extends AppCompatActivity {
                 EditText Weight = (EditText) findViewById(R.id.weight);
                 String sWeight = Weight.getText().toString().trim();
 
+                boolean digitsOnlySets = TextUtils.isDigitsOnly(Sets.getText());
+                boolean digitsOnlyReps = TextUtils.isDigitsOnly(Reps.getText());
+
                 //Dodawanie tabeli trening na starcie
 
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                if(sExerciseName.equals("") || sSets.equals("") || sReps.equals("") || sWeight.equals("") || !digitsOnlySets || !digitsOnlyReps){
+                    CharSequence text = "Błąd w formularzu!";
+                    int duration = Toast.LENGTH_SHORT;
 
-                ContentValues values = new ContentValues();
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_EXERCISE, sExerciseName);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_SETS, sSets);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_REPS, sReps);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_WEIGHT, sWeight);
-                values.put(DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT, trainingId);
+                    Toast.makeText(view.getContext(), text, duration).show();
+                }else {
 
-                long newRowId = db.insert(DatabaseContract.Exercises.TABLE_NAME, null, values);
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-                finish();
+                    ContentValues values = new ContentValues();
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_EXERCISE, sExerciseName);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_SETS, sSets);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_REPS, sReps);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_WEIGHT, sWeight);
+                    values.put(DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT, trainingId);
 
+                    long newRowId = db.insert(DatabaseContract.Exercises.TABLE_NAME, null, values);
+
+                    finish();
+                }
 
             }
         });

@@ -12,7 +12,7 @@ import android.provider.BaseColumns;
 
 import com.example.gaintracker.ButtonInterface;
 import com.example.gaintracker.R;
-import com.example.gaintracker.TrainingAdapter;
+import com.example.gaintracker.adapters.TrainingAdapter;
 import com.example.gaintracker.TreningObject;
 import com.example.gaintracker.database.DatabaseContract;
 import com.example.gaintracker.database.DatabaseHelper;
@@ -20,11 +20,8 @@ import com.example.gaintracker.database.DatabaseHelper;
 import java.util.ArrayList;
 
 public class PreviewActivity extends AppCompatActivity {
-
-    //List dates, daysOfTheWeek;
     DatabaseHelper dbHelper = new DatabaseHelper(this);
     RecyclerView recycleView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +29,6 @@ public class PreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preview);
 
         recycleView = findViewById(R.id.recycleview);
-
 
         //Poniżej pobieranie danych z bazy i wrzucanie do recyclerviewera
 
@@ -68,27 +64,41 @@ public class PreviewActivity extends AppCompatActivity {
             long id = cursor.getLong(
                     cursor.getColumnIndexOrThrow(DatabaseContract.Workout._ID));
 
-            System.out.println(itemDate + itemDay);
-
             TreningObject object1 = new TreningObject(id, itemDate, itemDay);
             treningArrayList.add(object1);
 
         }
+
+
 
         TrainingAdapter trainingAdapter = new TrainingAdapter(this, treningArrayList, new ButtonInterface() {
             @Override
             public void buttonOnClick(TreningObject object) {
                 Intent intent = new Intent(PreviewActivity.this, ExpandActivity.class);
                 long id = object.getId();
-                System.out.println(id);
-                System.out.println(id);
-                System.out.println(id);
                 intent.putExtra("id", id);
                 startActivity(intent);
+            }
+
+            @Override
+            public void deleteOnClick(TreningObject id, int position) {
+                String selection = DatabaseContract.Workout._ID + " LIKE ?";
+                String selectionExercise = DatabaseContract.Exercises.COLUMN_NAME_ID_WORKOUT + " LIKE ?";
+
+                long deleteId = id.getId();
+                treningArrayList.remove(deleteId);
+
+                String[] selectionArgs = {deleteId+""};
+                String[] selectionExerciseArgs = {deleteId+""};
+                db.delete(DatabaseContract.Workout.TABLE_NAME, selection, selectionArgs);
+                db.delete(DatabaseContract.Exercises.TABLE_NAME, selectionExercise, selectionExerciseArgs);
+
 
             }
         });
+
         recycleView.setAdapter(trainingAdapter);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 }

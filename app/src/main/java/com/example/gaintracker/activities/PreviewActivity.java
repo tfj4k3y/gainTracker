@@ -13,7 +13,7 @@ import android.provider.BaseColumns;
 import com.example.gaintracker.ButtonInterface;
 import com.example.gaintracker.R;
 import com.example.gaintracker.adapters.TrainingAdapter;
-import com.example.gaintracker.TreningObject;
+import com.example.gaintracker.objects.TreningObject;
 import com.example.gaintracker.database.DatabaseContract;
 import com.example.gaintracker.database.DatabaseHelper;
 

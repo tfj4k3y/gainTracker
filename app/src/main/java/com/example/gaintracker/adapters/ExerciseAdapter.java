@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gaintracker.ExerciseObject;
+import com.example.gaintracker.objects.ExerciseObject;
 import com.example.gaintracker.R;
 
 import java.util.List;

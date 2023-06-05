@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gaintracker.ButtonInterface;
 import com.example.gaintracker.R;
-import com.example.gaintracker.TreningObject;
+import com.example.gaintracker.objects.TreningObject;
 
 import java.util.List;
 

@@ -23,7 +23,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseHelper dbHelper = new DatabaseHelper(this); //tutaj nwm czy moze byc
+    DatabaseHelper dbHelper = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

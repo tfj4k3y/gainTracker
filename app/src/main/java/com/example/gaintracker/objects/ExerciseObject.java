@@ -1,4 +1,4 @@
-package com.example.gaintracker;
+package com.example.gaintracker.objects;
 
 public class ExerciseObject {
 

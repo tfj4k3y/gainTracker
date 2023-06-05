@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.provider.BaseColumns;
 
 import com.example.gaintracker.adapters.ExerciseAdapter;
-import com.example.gaintracker.ExerciseObject;
+import com.example.gaintracker.objects.ExerciseObject;
 import com.example.gaintracker.R;
 import com.example.gaintracker.database.DatabaseContract;
 import com.example.gaintracker.database.DatabaseHelper;
